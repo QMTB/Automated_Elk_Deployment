@@ -63,7 +63,7 @@ Machines within the network can only be accessed by Ansible control node SSH.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |                 | 
+| Name     | Publicly Accessible | Allowed IP Addresses                   | 
 |----------|---------------------|----------------------------------------|
 | Jump Box | Yes                 | Workstation Public IP                  |
 | Web-1    | No                  | 10.0.0.4, 40.04.56.12(Load-Balancer)   |                                
