@@ -22,9 +22,9 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly responsive, in addition to restricting access to the network.
-- Load balancers primarily protect the Availability aspect of security. Load Balancing provides additional filtering of traffic working in conjuction with the Network Security Group, as well as with its own set of security rules, and health probe function.   As its name implies the Load balancer literally balancences the web traffic, while also monitoring the health of the backend pool servers.  Load balancing is a very important tool in the mitgation of risk to DDoS attacks.    
+- Load balancers primarily protect the Availability aspect of security. Load Balancing provides additional filtering of traffic working in conjuction with the Network Security Group, as well as with its own set of security rules, and health probe function.   As its name implies the Load balancer literally balances the web traffic, while also monitoring the health of the backend pool servers.  Load balancing is a very important tool in the mitgation of risk to DDoS attacks.    
 
-- The centerpiece of this Network infrastructure is the Jump Box Provisioner.  The main advantage of a Jump box is it maintains secure, tightly controlled remote access to the entire virtual network. It provides one location by which an administrator can safely manage the deployment, configuration and maintenance of the entire internal virtual network. 
+- The centerpiece of this Network infrastructure is the Jump Box Provisioner.  The main advantage of a Jump box is, that it maintains secure, tightly controlled, remote access to the entire virtual network. It provides one location by which an administrator can safely manage the deployment, configuration and maintenance of the entire internal virtual network. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
@@ -109,7 +109,7 @@ SSH into the control node and follow the steps below:
 
 - The playbook is a YAML file located within this repository in the Playbook_YAMLS file.  Copy the appropriate file, and add it to /etc/ansible/roles located inside the Ansible container. You need to create this directory if it does not already exist. 
 
-- In addition to the roles directory, there should also be a files directory located at etc/ansible/files.  The files directory contains configuration files which work in conjunction with the playbooks.  You must make sure these are updated with the appropriate IP addressing and port configurations.  There are copies of the configuration files located in this repository in the Config_YAMLS file.
+- In addition to the roles directory, there should also be a files directory located at etc/ansible/files.  The files directory contains configuration files which work in conjunction with the playbooks.  You must make sure these are updated with the appropriate IP addressing and port configurations.  There are examples of the configuration files located in this repository in the Config_YAMLS file.
   
 - In order to designate the desired machine(s) on which the playbook will run, go to the /etc/ansible/hosts file.  Add the internal IP address of your target machine(s) along with the desired Python version, and specify which hosts group the machine belongs to.  The hosts group names are written inside of brackets.  This hosts group name will correspond to the hosts entry at the top of the YAML playbook.  
 
@@ -125,6 +125,7 @@ SSH into the control node and follow the steps below:
 Here are the specific commands the user will need to run to download the playbook, update the files, etc.
 
 - Ansible automatically  generates unique names for newly created ansible containers.  In this example, the container is named “jovial_bouman”.  
+
 - sudo docker start jovial_bouman
 - sudo docker attach jovial_bouman   
 - nano /etc/ansible/files/config.yml
@@ -135,4 +136,9 @@ Here are the specific commands the user will need to run to download the playboo
 - Add the IP to the proper group with the Python version specified in the “hosts” files 
 - Now run ansible-playbook /etc/ansible/roles/<playbook>.yml from within the "roles" directory.
 
-- If there are no errors, check the containers are running, and confirm it in your browser.  To check if the DVWA servers are running enter the Public IP of the load balancer, which is the web server gateway.  To check if the Elk server is running enter the public IP and port of the Elk Server like so Public IP:5601. 
+- If there are no errors, check the containers are running, and run
+- curl localhost/setup.php
+- If you see HTML it is working.
+- Now check your browser
+- To check the DVWA servers enter the Public IP of the load balancer, which is the web server gateway.  To check if the Elk server is running enter the public IP and port of the Elk Server like this  
+- Public IP:5601. 
