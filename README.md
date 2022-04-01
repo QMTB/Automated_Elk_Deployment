@@ -22,8 +22,10 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly responsive, in addition to restricting access to the network.
-- Load balancers primarily protect the Availability aspect of security. Load Balancing provides additional filtering of traffic through its own set of security rules, and health probe function.  Load balancing also protects the availability of data by mitigating the risk of DDoS attacks.  If the webservers were exposed to the internet the load balancer would balancence web traffic to the backend pool servers, and monitoring their respective health of the individual servers.   
-The Network infrastructure is deployed by ways of the Jump Box Provisioner.  The main advantage of a Jump box is it maintains secure, tightly controlled remote access to the entire virtual network. It provides one location by which an administrator can safely manage the deployment, configuration and maintenance of the entire internal virtual network. 
+- Load balancers primarily protect the Availability aspect of security. Load Balancing provides additional filtering of traffic working in conjuction with the Network Security Group, as well as with its own set of security rules, and health probe function.   As its name implies the Load balancer literally balancences the web traffic, while at the same time monitoring the health of the backend pool servers.  Load balancing is a very important tool in the  mitgation of risk to DDoS attacks.    
+
+- The centerpiece of the Network infrastructure is the Jump Box Provisioner.  The main advantage of a Jump box is it maintains secure, tightly controlled remote access to the entire virtual network. It provides one location by which an administrator can safely manage the deployment, configuration and maintenance of the entire internal virtual network. 
+
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
 - Filebeat watches for any changes to files or files systems.  
@@ -50,14 +52,6 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 
 Machines within the network can only be accessed by Ansible control node SSH.
 - Only the Jump Box Provisioner 10.0.0.4 has access to the Elk Server.
-
-
-- ***Note--- Access is currently limited to the public IP of my home workstation.  However, this network does accept public HTTP traffic via port 80 through the Load balancer gateway Public IP address.  If the load balancer security rule 103 was upended, the load balancer could grant public access to the backend pool DVWA servers.  
-
-- The Jump Box Provisoner is only accessible via SSH from my Home Public IP workstation.  The Jump Box in turn has SSH access to all of the internal servers by way of the Ansible control node. 
-
-- The Elk server allows HTTP through port 5601.  Again, access is currently limited to only my Workstation Public IP. 
-
 
 
 
