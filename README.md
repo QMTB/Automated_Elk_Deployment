@@ -22,9 +22,9 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly responsive, in addition to restricting access to the network.
-- Load balancers primarily protect the Availability aspect of security. Load Balancing provides additional filtering of traffic working in conjuction with the Network Security Group, as well as with its own set of security rules, and health probe function.   As its name implies the Load balancer literally balancences the web traffic, while at the same time monitoring the health of the backend pool servers.  Load balancing is a very important tool in the  mitgation of risk to DDoS attacks.    
+- Load balancers primarily protect the Availability aspect of security. Load Balancing provides additional filtering of traffic working in conjuction with the Network Security Group, as well as with its own set of security rules, and health probe function.   As its name implies the Load balancer literally balancences the web traffic, while also monitoring the health of the backend pool servers.  Load balancing is a very important tool in the mitgation of risk to DDoS attacks.    
 
-- The centerpiece of the Network infrastructure is the Jump Box Provisioner.  The main advantage of a Jump box is it maintains secure, tightly controlled remote access to the entire virtual network. It provides one location by which an administrator can safely manage the deployment, configuration and maintenance of the entire internal virtual network. 
+- The centerpiece of this Network infrastructure is the Jump Box Provisioner.  The main advantage of a Jump box is it maintains secure, tightly controlled remote access to the entire virtual network. It provides one location by which an administrator can safely manage the deployment, configuration and maintenance of the entire internal virtual network. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
